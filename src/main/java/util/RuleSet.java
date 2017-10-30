@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RuleSet {
+    private ExpressionParser parser = new SpelExpressionParser();
     private final String mainExpression;
     private final List<String> contains;
     private String result;
@@ -21,7 +22,6 @@ public class RuleSet {
 
     public boolean match(Record rec) {
         String currentExpression = mainExpression;
-        ExpressionParser parser = new SpelExpressionParser();
 
         if (mainExpression.contains("$price")) {
             currentExpression = currentExpression.replace("$price", String.valueOf(rec.getPrice()))

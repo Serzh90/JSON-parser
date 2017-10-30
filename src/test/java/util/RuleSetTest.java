@@ -43,7 +43,7 @@ public class RuleSetTest {
         Record record = new Record(0, 10, "invalid desc");
         assertFalse(ruleSet.match(record));
 
-        record = new Record(0, 10, "valid apple desc with banana");
+        record = new Record(0, 10, "valid aPpLe desc with bAnaNa");
         assertFalse(ruleSet.match(record));
 
         record = new Record(0, 21, "valid apple desc with banana");

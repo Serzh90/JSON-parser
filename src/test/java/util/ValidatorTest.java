@@ -36,6 +36,16 @@ public class ValidatorTest {
             fail();
         }
 
+        Record record = new Record(15, 0.0F, "");
+        RecordResult result = validator.validate(record);
+        assertNotNull(result);
+        assertEquals(result.getFlag(), "red");
+        assertEquals(result.getRecordId(), 15);
+
+        record = new Record(12, 111, "nothing special here");
+        result = validator.validate(record);
+        assertEquals(result.getFlag(), "green"); //default
+        assertEquals(result.getRecordId(), 12);
     }
 
 }

@@ -29,11 +29,13 @@ public class Validator {
         String mainExp = rule.replace(endExp, "");
         String result = endExp.replace("THEN", "")
                 .replaceAll("\\s+", "");
+
         List<String> contains = null;
         if (rule.contains("CONTAINS")) {
             contains = Arrays.asList(mainExp.substring(mainExp.indexOf("(") + 1, mainExp.indexOf(")")).split(","));
             mainExp = mainExp.replace(mainExp.substring(mainExp.indexOf("CONTAINS") - 1, mainExp.indexOf(")") + 1), "");
         }
+
         RuleSet ruleSet = new RuleSet(mainExp, contains, result);
         return ruleSet;
     }
