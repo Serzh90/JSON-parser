@@ -1,0 +1,4 @@
+$price > 20 AND $description CONTAINS (apple, banana) THEN red
+$price = 0 THEN red
+$description CONTAINS (apple, banana, strawberry) THEN red
+$price >= 10000 AND $description CONTAINS (bmw) THEN yellow
