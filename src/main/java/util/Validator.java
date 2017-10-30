@@ -2,7 +2,7 @@ package util;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
