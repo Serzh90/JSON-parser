@@ -19,16 +19,16 @@ public class RuleSet {
         this.result = result;
     }
 
-    public boolean match(Record rec){
+    public boolean match(Record rec) {
         String currentExpression = mainExpression;
         ExpressionParser parser = new SpelExpressionParser();
 
-        if(mainExpression.contains("$price")) {
+        if (mainExpression.contains("$price")) {
             currentExpression = currentExpression.replace("$price", String.valueOf(rec.getPrice()))
-            .replace(" = ", " == ");
+                    .replace(" = ", " == ");
         }
 
-        if(mainExpression.contains("$description") && contains != null) {
+        if (mainExpression.contains("$description") && contains != null) {
             List<String> containsExp = contains.stream().map(con -> "'"
                     + rec.getDescription()
                     + "'"

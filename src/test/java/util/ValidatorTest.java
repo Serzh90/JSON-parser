@@ -5,9 +5,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class ValidatorTest {
 
@@ -25,11 +23,11 @@ public class ValidatorTest {
         }
         assertNotNull(validator);
         assertNotNull(validator.getRuleSet());
-        assertEquals(validator.getRuleSet().size(),4);
+        assertEquals(validator.getRuleSet().size(), 4);
     }
 
     @Test
-    public void validate(){
+    public void validate() {
         Validator validator = null;
         try {
             validator = new Validator(new File("resources/validation_config")).init();

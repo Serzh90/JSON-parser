@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class RuleSetTest {
 
     @Test
-    public void ruleSet(){
+    public void ruleSet() {
         RuleSet ruleSet = new RuleSet("$price > 20 AND $description ",
                 Arrays.asList("apple", "banana"),
                 "red");
@@ -18,7 +18,7 @@ public class RuleSetTest {
     }
 
     @Test
-    public void testWithPriceOnly(){
+    public void testWithPriceOnly() {
         RuleSet ruleSet = new RuleSet("$price = 0", null, "red");
         Record record = new Record(1, 0.0F, "");
         assertTrue(ruleSet.match(record));
@@ -29,7 +29,7 @@ public class RuleSetTest {
         record = new Record(1, 0.0F, "description with bmw and banana");
         assertTrue(ruleSet.match(record));
 
-        ruleSet = new RuleSet("$price >= 10000", Arrays.asList("bmw") , "yellow");
+        ruleSet = new RuleSet("$price >= 10000", Arrays.asList("bmw"), "yellow");
         record = new Record(1, 1000000, "the new BMW m3 gran coupe Competition");
         assertTrue(ruleSet.match(record));
     }

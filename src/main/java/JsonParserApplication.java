@@ -27,7 +27,7 @@ public class JsonParserApplication {
     public static void main(String[] args) {
 
         if (args.length < 3) {
-            logger.error("Arguments missing, exiting!");
+            logger.error("Arguments missing, please check README.md, exiting!");
             System.exit(-1);
         }
 
@@ -46,11 +46,10 @@ public class JsonParserApplication {
         }
 
         List<RecordResult> results = new ArrayList<>(records.size());
-        for (Record rec: records) {
+        for (Record rec : records) {
             try {
                 results.add(validator.validate(rec));
-            }
-            catch (Exception ex){
+            } catch (Exception ex) {
                 ex.printStackTrace();
                 logger.error("Validation failed for  record with id: " + rec.getId(), ex);
             }
@@ -62,8 +61,7 @@ public class JsonParserApplication {
         try (Writer writer = new FileWriter(resultFileName)) {
             Gson gson = new GsonBuilder().create();
             gson.toJson(results, writer);
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             logger.error("Fatal error when saving validation results to file ", ex);
         }

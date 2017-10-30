@@ -13,7 +13,7 @@ public class JsonParserApplicationTest {
     @Before
     public void clean() {
         File resultFile = new File(resultFileName);
-        if(resultFile.exists()){
+        if (resultFile.exists()) {
             resultFile.delete();
         }
     }
